@@ -1,0 +1,10 @@
+{
+  "author": "Jan Zimmek <jan.zimmek@web.de>",
+  "name": "gluez",
+  "description": "gluez",
+  "version": "0.1",
+  "dependencies": {
+    "underscore": "1.4.2"
+  },
+  "main": "lib/gluez.js",
+}
