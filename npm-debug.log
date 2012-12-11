@@ -14,19 +14,22 @@
 11 verbose read json package.json
 12 silly lockFile 3a52ce78- .
 13 error addLocal Could not install .
-14 error Failed to parse json
-14 error Unexpected token }
-15 error File: package.json
-16 error Failed to parse package.json data.
-16 error package.json must be actual JSON, not just JavaScript.
-16 error
-16 error This is not a bug in npm.
-16 error Tell the package author to fix their package.json file. JSON.parse
-17 error System Darwin 12.2.1
-18 error command "/usr/local/Cellar/node/0.8.12/bin/node" "/usr/local/bin/npm" "publish"
-19 error cwd /Users/jzk/tmp/gluez
-20 error node -v v0.8.12
-21 error npm -v 1.1.63
-22 error file package.json
-23 error code EJSONPARSE
-24 verbose exit [ 1, true ]
+14 error Error: invalid version: 0.1
+14 error     at validVersion (/usr/local/Cellar/node/0.8.12/lib/node_modules/npm/node_modules/read-package-json/read-json.js:535:40)
+14 error     at final (/usr/local/Cellar/node/0.8.12/lib/node_modules/npm/node_modules/read-package-json/read-json.js:295:23)
+14 error     at /usr/local/Cellar/node/0.8.12/lib/node_modules/npm/node_modules/read-package-json/read-json.js:119:33
+14 error     at cb (/usr/local/Cellar/node/0.8.12/lib/node_modules/npm/node_modules/slide/lib/async-map.js:48:11)
+14 error     at /usr/local/Cellar/node/0.8.12/lib/node_modules/npm/node_modules/read-package-json/read-json.js:247:40
+14 error     at fs.readFile (fs.js:176:14)
+14 error     at fs.close (/usr/local/Cellar/node/0.8.12/lib/node_modules/npm/node_modules/graceful-fs/graceful-fs.js:90:5)
+14 error     at Object.oncomplete (fs.js:297:15)
+15 error If you need help, you may report this log at:
+15 error     <http://github.com/isaacs/npm/issues>
+15 error or email it to:
+15 error     <npm-@googlegroups.com>
+16 error System Darwin 12.2.1
+17 error command "/usr/local/Cellar/node/0.8.12/bin/node" "/usr/local/bin/npm" "publish"
+18 error cwd /Users/jzk/tmp/gluez
+19 error node -v v0.8.12
+20 error npm -v 1.1.63
+21 verbose exit [ 1, true ]

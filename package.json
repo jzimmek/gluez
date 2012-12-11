@@ -2,7 +2,7 @@
   "author": "Jan Zimmek <jan.zimmek@web.de>",
   "name": "gluez",
   "description": "gluez",
-  "version": "0.1",
+  "version": "0.1.0",
   "dependencies": {
     "underscore": "1.4.2"
   },
