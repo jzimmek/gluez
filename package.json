@@ -1,8 +1,8 @@
 {
   "author": "Jan Zimmek <jan.zimmek@web.de>",
-  "name": "gluez2",
+  "name": "gluez",
   "email": "jan.zimmek@web.de",
-  "description": "gluez2",
+  "description": "gluez",
   "version": "0.2.0",
   "dependencies": {
     "underscore": "1.4.2"
