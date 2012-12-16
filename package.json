@@ -1,11 +1,11 @@
 {
   "author": "Jan Zimmek <jan.zimmek@web.de>",
-  "name": "gluez",
+  "name": "gluez2",
   "email": "jan.zimmek@web.de",
-  "description": "gluez",
-  "version": "0.1.3",
+  "description": "gluez2",
+  "version": "0.2.0",
   "dependencies": {
     "underscore": "1.4.2"
   },
-  "main": "lib/gluez.js"
+  "main": "lib/shell.js"
 }
