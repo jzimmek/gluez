@@ -1,0 +1,60 @@
+<html>
+<head>
+  <title></title>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+  <script type="text/javascript" src="http://underscorejs.org/underscore-min.js"></script>
+  <script type="text/javascript" src="https://raw.github.com/jzimmek/snix/master/lib/snix.js"></script>
+  <script type="text/javascript" src="gluez2.js"></script>
+  <script type="text/javascript">
+
+    var app = new function(){
+
+      var inp = [
+        "new Shell(function(){",
+        "  this.dir('~/bin');",
+        "  this.su(function(){",
+        "    this.dir('~/bin');",
+        "  }, 'jzk');",
+        "});"
+      ].join("\n");
+
+      this.input = Snix.val(inp);
+      this.output = Snix.compute(function(){
+
+        var shell = eval(this.input());
+        var res = "";
+
+        shell._w = function(str){
+          res += str + "\n";
+        }
+        shell.generate();
+
+        return res;
+      }, this);
+
+    };
+
+    $(function(){
+      Snix.Binding.binden(app, $("body")[0]);
+    });
+  </script>
+  <style type="text/css">
+    textarea {
+      font-family: courier;
+      height:300px;
+    }
+    textarea.input {
+      width:400px;
+    }
+    textarea.output {
+      width:600px;
+    }
+  </style>
+</head>
+<body>
+
+  <textarea class="input" data-bind="value: @input"></textarea>
+  <textarea class="output" data-bind="value: @output"></textarea>
+
+</body>
+</html>
