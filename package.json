@@ -3,9 +3,9 @@
   "name": "gluez",
   "email": "jan.zimmek@web.de",
   "description": "gluez",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "dependencies": {
     "underscore": "1.4.2"
   },
-  "main": "lib/shell.js"
+  "main": "gluez.js"
 }

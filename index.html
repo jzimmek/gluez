@@ -7,10 +7,9 @@
   <script type="text/javascript" src="gluez2.js"></script>
   <script type="text/javascript">
 
-    var app = new function(){
-
+    Snix.app(function(){
       var inp = [
-        "new Shell(function(){",
+        "new Gluez.Shell(function(){",
         "  this.dir('~/bin');",
         "  this.su(function(){",
         "    this.dir('~/bin');",
@@ -31,12 +30,8 @@
 
         return res;
       }, this);
-
-    };
-
-    $(function(){
-      Snix.Binding.binden(app, $("body")[0]);
     });
+
   </script>
   <style type="text/css">
     textarea {
