@@ -145,9 +145,15 @@ var Gluez = {};
 
     this.steps = [];
     this.notifyEntries = [];
+    this.ensureEntries = [];
     this.data = null;
   };
   Resource.id = 1;
+
+  Resource.prototype.ensures = function(resource){
+    this.ensureEntries.push(resource);
+    return this;
+  };
 
   Resource.prototype.notifies = function(resource){
     this.notifyEntries.push(resource);
@@ -220,6 +226,7 @@ var Gluez = {};
 
   Resource.prototype.writeFunctionBody = function(indent, dry){
     if(this.steps.length == 1 && this.steps[0].checks.length == 0){
+      this.writeFunctionEnsures(indent); 
       if(dry){
         this.writeNotUp2date(indent);
         this.writeFunctionNotifies(indent); 
@@ -240,6 +247,7 @@ var Gluez = {};
         );
       }
     }else{
+      this.writeFunctionEnsures(indent);
       this.shell.w(_.map(this.steps, function(s){ return this.wrapCode(s.checks.join(" && ")); }, this).join(" && "), indent);
       this.writeExitCodeCheck(
         // success
@@ -275,9 +283,16 @@ var Gluez = {};
     }
   };
 
+  Resource.prototype.writeFunctionEnsures = function(indent){
+    _.each(this.ensureEntries, function(n){
+      this.shell.w("echo \"ensure ["+n.label+"] for ["+this.label+"]\"", indent);
+      this.shell.w(n.functionName + " # ensure " + n.label, indent);
+    }, this);      
+  };
+
   Resource.prototype.writeFunctionNotifies = function(indent){
     _.each(this.notifyEntries, function(n){
-      this.shell.w(n.functionName + " # " + n.label, indent);
+      this.shell.w(n.functionName + " # notify " + n.label, indent);
     }, this);
   };
 
