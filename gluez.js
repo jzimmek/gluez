@@ -81,7 +81,9 @@ var Gluez = {};
   Shell.registerRecipe = function(recipeName, fun){
     Shell.prototype.recipes[recipeName] = function(opts){
       opts = opts || {};
-      fun.apply(this, [opts]);
+      fun.apply(this, [opts, function(file){
+        return "./recipes/"+recipeName+"/"+file;
+      }]);
     };
   };
 
